@@ -1,48 +1,40 @@
-.icon-wrapper{
-    display: grid;
-  grid-template-columns: 250px 250px 250px 250px 250px;  
-  gap: 16px; 
-  box-sizing: border-box; 
-
+.icon-wrapper {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  gap: 16px;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 1100px) {
   .icon-wrapper {
     grid-template-columns: 70x 70px 70px 70px;
-      
   }
 }
- 
 
-.icon-costumer{
-    margin: 20px;
-   text-align: center;
-   cursor: pointer;
-   transform: skew(0deg, 0deg);
-   transition: .5s;
+.icon-costumer {
+  margin: 20px;
+  text-align: center;
+  cursor: pointer;
+  transform: skew(0deg, 0deg);
+  transition: 0.5s;
 }
-*.icon-costumer:hover{
+*.icon-costumer:hover {
   transform: scale(1.1);
-  
-  
 }
-.folder-icon{
-    
-    height: auto;
-    display: block;
-    margin: 0 auto 5px;
+.folder-icon {
+  height: auto;
+  display: block;
+  margin: 0 auto 5px;
 }
 
-.icon-costumer span{
- display: inline-block;    
- padding: 5px 10px;
-    background-color: #3498db;
-    color: #ffffff;
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    
-    ;
+.icon-costumer span {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: #ffffff;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }

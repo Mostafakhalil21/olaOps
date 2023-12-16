@@ -1,4 +1,4 @@
-import { Component,Input,Inject } from '@angular/core';
+import { Component, Input, Inject, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Organization } from '../organization';
@@ -8,31 +8,32 @@ import { ActiveTemplateComponent } from '../active-template/active-template.comp
 @Component({
   selector: 'app-pop-up-folder',
   standalone: true,
-  imports: [CommonModule,OncallComponent,JiraComponent,ActiveTemplateComponent],
+  imports: [
+    CommonModule,
+    OncallComponent,
+    JiraComponent,
+    ActiveTemplateComponent,
+  ],
   templateUrl: './pop-up-folder.component.html',
-  styleUrl: './pop-up-folder.component.css'
+  styleUrl: './pop-up-folder.component.css',
 })
 export class PopUpFolderComponent {
-  selectedComponent: number | null = null
-  
-    @Input() organization: any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:{ organization: any }){
-    console.log('Received Data:', data);
-     this.organization =this.data.organization;
-     
-     
+  selectedComponent: number | null = null;
+
+  @Input() organization: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { organization: any }) {
+    this.organization = this.data.organization;
   }
 
-  showComponent(componentNumber: number):void{
-    if(this.selectedComponent!= null){
-      this.hideComponent(this.selectedComponent)
+  showComponent(componentNumber: number): void {
+    if (this.selectedComponent != null) {
+      this.hideComponent(this.selectedComponent);
     }
-    this.selectedComponent=componentNumber
+    this.selectedComponent = componentNumber;
   }
-  hideComponent(componentNumber:number):void {
-    if(this.selectedComponent === componentNumber){
-      this.selectedComponent=null
+  hideComponent(componentNumber: number): void {
+    if (this.selectedComponent === componentNumber) {
+      this.selectedComponent = null;
     }
   }
-
 }

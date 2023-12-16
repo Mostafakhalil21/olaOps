@@ -1,44 +1,67 @@
 <div *ngIf="loading; else loadedContent" class="loading-spinner"></div>
 
-<ng-template #loadedContent  >
-  <div *ngIf="oncallDetails" class="name-with-indicator">
-    <div class="Tier-select" style="width:100px;">
-      
-      <select #tier (change)="checkTier(tier.value)"> 
+<ng-template #loadedContent>
+  <div
+    *ngIf="oncallDetails && inputDataID.id === 143"
+    class="name-with-indicator"
+  >
+    <div class="Tier-select" style="width: 100px">
+      <select #team (change)="checkteam(team.value)">
+        <option value="8">Devops</option>
+        <option value="182">Bolt It</option>
+      </select>
+    </div>
+    <div class="Tier-select" style="width: 100px">
+      <select #tier (change)="checkTier(tier.value, team?.value)">
         <option value="1">Tier 1</option>
         <option value="2">Tier 2</option>
         <option value="3">Tier 3</option>
         <option value="4">Tier 4</option>
       </select>
     </div>
-    
     <p>{{ oncallDetails.full_name }}</p>
     <div class="online-indicator"></div>
-    
+  </div>
+
+  <div
+    *ngIf="oncallDetails && inputDataID.id !== 143"
+    class="name-with-indicator"
+  >
+    <div class="Tier-select" style="width: 100px">
+      <select #tier (change)="checkTier(tier.value)">
+        <option value="1">Tier 1</option>
+        <option value="2">Tier 2</option>
+        <option value="3">Tier 3</option>
+        <option value="4">Tier 4</option>
+      </select>
+    </div>
+    <p>{{ oncallDetails.full_name }}</p>
+    <div class="online-indicator"></div>
   </div>
   <div *ngIf="!oncallDetails">
     <p>No matching contact found.</p>
   </div>
-  <br><br>
+  <br /><br />
   <div *ngIf="oncallDetails" class="container">
-  <div class="grid-container">
-    <div class="oblong">
-      <span class="icon">📞</span>
-      <span class="text">{{oncallDetails.phone}}</span>
-    </div>
-    <div class="oblong">
-      <span class="icon" style="color: blue;">📧</span>
-      <span class="text">{{oncallDetails.email}}</span>
-    </div>
-    <div class="oblong">
-      <span class="icon">&#x23F0;</span>
-      <span class="text">{{current_since}} - {{current_until}}</span>
-    </div>
-    <div class="oblong">
-<span class="icon" style="color: #333;">🔍</span>
-      <span class="text">{{ getchannelName(oncallDetails.customer) }}</span>
+    <div class="grid-container">
+      <div class="oblong">
+        <span class="icon">📞</span>
+        <span class="text">{{ oncallDetails.phone }}</span>
+      </div>
+      <div class="oblong">
+        <span class="icon" style="color: blue">📧</span>
+        <span class="text">{{ oncallDetails.email }}</span>
+      </div>
+      <div class="oblong">
+        <span class="icon">&#x23F0;</span>
+        <span class="text">{{ current_since }} - {{ current_until }}</span>
+      </div>
+      <div class="oblong">
+        <span class="icon" style="color: #333">🔍</span>
+        <span class="text">{{
+          getchannelName(oncallDetails.customer, oncallDetails.first_name)
+        }}</span>
+      </div>
     </div>
   </div>
-</div>
 </ng-template>
-

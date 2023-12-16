@@ -1,55 +1,51 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-  }
-  :host {
-    display: block;
-  
-  }
-  
-  .button-container {
-    text-align: center;
-    margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+:host {
+  display: block;
+}
 
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 1px solid #3498db; /* Border color */
-    color: #fff; /* Text color */
-    background-color: #3498db; /* Background color */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-    margin-left: 30px;
-  }
-  
-  .button-content{
-    text-align: center;
-    
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-  }
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
 
-  .customer-name{
-    float: left;
-    padding: 10px 20px;
-    font-size: 16px;
-    text-align: center;
-    color: #fff; /* Text color */
-    background-color: #3498db; /* Background color */
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-   
-  }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #3498db; /* Border color */
+  color: #fff; /* Text color */
+  background-color: #3498db; /* Background color */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  margin-left: 30px;
+}
+
+.button-content {
+  text-align: center;
+
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.customer-name {
+  float: left;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff; /* Text color */
+  background-color: #3498db; /* Background color */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

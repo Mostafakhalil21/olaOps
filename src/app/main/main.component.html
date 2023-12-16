@@ -1,7 +1,14 @@
 <div class="icon-wrapper">
-    <div class="icon-costumer" *ngFor="let organization of filterArrayOfOrganizations()" (click)="openDialog(organization)">
-      <img src="assets/images/icons8-folder-100.png" alt="Folder Icon" class="folder-icon">
-        <span>{{organization.name}}</span>
-    </div>
-
+  <div
+    class="icon-costumer"
+    *ngFor="let organization of filterArrayOfOrganizations()"
+    (click)="openDialog(organization)"
+  >
+    <img
+      src="assets/images/icons8-folder-100.png"
+      alt="Folder Icon"
+      class="folder-icon"
+    />
+    <span>{{ organization.name }}</span>
   </div>
+</div>

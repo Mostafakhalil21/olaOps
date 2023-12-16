@@ -3,7 +3,10 @@
 
     <span class="customer-name" >{{organization.name}}</span>
 
-    <button (click)="showComponent(1)"  class="btn btn-primary">OnCall</button>
+    <button *ngIf="organization.id !== 143" (click)="showComponent(1)"  class="btn btn-primary">OnCall</button>
+    <button *ngIf="organization.id == 143" (click)="showComponent(1)"  class="btn btn-primary">OnCall</button>
+    <!-- <button *ngIf="organization.id == 143" (click)="showComponent(1)"  class="btn btn-primary">Devops OnCall</button>
+    <button *ngIf="organization.id == 143" (click)="showComponent(1)"  class="btn btn-primary">It OnCall</button> -->
     <!-- <button (click)="showComponent(2)" class="btn btn-primary">Open Jira Ticket</button>
     <button (click)="showComponent(3)"  class="btn btn-primary">Templates</button> -->
   </div>

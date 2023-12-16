@@ -7,7 +7,7 @@
   margin-right: 5px;
 }
 .name-with-indicator p {
-  margin: 0; 
+  margin: 0;
 }
 
 .online-indicator {
@@ -15,10 +15,8 @@
   height: 10px;
   background-color: green;
   border-radius: 50%;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
-
-
 
 .loading-spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
@@ -46,16 +44,15 @@ p {
 }
 .Tier-select {
   font-family: Arial;
-  
+
   background-color: #3498db;
   margin-right: 10px;
-  
+
   cursor: pointer;
   border: 1px solid #3498db;
   border-radius: 5px;
-  
 }
-select{
+select {
   padding: 3px 4px 4px 6px;
   background-color: #3498db;
   color: white;
@@ -63,13 +60,10 @@ select{
   border: none;
   font-size: 1.15rem;
   cursor: pointer;
-
 }
-option{
+option {
   cursor: pointer;
-
 }
-
 
 .grid-container {
   display: grid;
@@ -78,7 +72,6 @@ option{
   gap: 10px;
   width: 80vw;
   max-width: 400px; /* Set a maximum width for better responsiveness */
-
 }
 
 .oblong {
@@ -89,7 +82,6 @@ option{
   padding: 10px;
   width: 100%; /* Occupy the full width of the grid cell */
   box-sizing: border-box;
- 
 }
 
 .icon {
@@ -103,8 +95,23 @@ option{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #3498db; /* Border color */
+  color: #fff; /* Text color */
+  background-color: #3498db; /* Background color */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  margin-left: 30px;
 }

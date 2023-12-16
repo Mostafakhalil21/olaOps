@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Organization } from '../organization';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -11,55 +11,57 @@ import { OrganizationService } from '../organization.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrl: './main.component.css',
 })
-
-
 export class MainComponent implements OnInit {
-  
-  data:any[]=[]
-  constructor(private dialogRef: MatDialog,private organization:OrganizationService){}
+  data: any[] = [];
+  constructor(
+    private dialogRef: MatDialog,
+    private organization: OrganizationService
+  ) {}
 
-  openDialog(organization:any): void{
+  openDialog(organization: any): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%'; 
-    dialogConfig.height = '60%'; 
+    dialogConfig.width = '60%';
+    dialogConfig.height = '60%';
     dialogConfig.data = { organization };
-    this.dialogRef.open(PopUpFolderComponent,dialogConfig);
+    this.dialogRef.open(PopUpFolderComponent, dialogConfig);
   }
-//this will be changed with api calls
+  //this will be changed with api calls
 
-
-
-ngOnInit():void{
-
-  this.organization.getallorganization().subscribe((res)=> {
-    this.data=res.children;
-    console.log(res.children)
-  })
-
-}
+  ngOnInit(): void {
+    this.organization.getallorganization().subscribe((res) => {
+      this.data = res.children;
+    });
+  }
   // addIsOncallAvailableAttribute(data:any[]): any{
   //   return data.map(item =>({
   //     ...item,
   //     isOncallAvailable: item.hasOwnProperty('isOncallAvailable') ? item.isOncallAvailable:true,
   //   }))
   // }
-  shouldIgnore(organization:any):boolean{
-    const ignore =['Artlist.io','FeedVisor','GreenRoad','Sisense','Trafficpoint','Taboola','Milloh-CS']
-    return ignore.includes(organization.name)
+  shouldIgnore(organization: any): boolean {
+    const ignore = [
+      'Artlist.io',
+      'FeedVisor',
+      'GreenRoad',
+      'Sisense',
+      'Trafficpoint',
+      'Taboola',
+      'Milloh-CS',
+    ];
+    return ignore.includes(organization.name);
   }
 
-  filterArrayOfOrganizations(): any[]{
-    if(Array.isArray(this.data)){
-    return this.data.filter(organization => !this.shouldIgnore(organization))
-  }else{
-    console.error("this.data is not an array")
-    return[];
-  }
-
-
-  
+  filterArrayOfOrganizations(): any[] {
+    if (Array.isArray(this.data)) {
+      return this.data.filter(
+        (organization) => !this.shouldIgnore(organization)
+      );
+    } else {
+      console.error('this.data is not an array');
+      return [];
+    }
   }
 }
