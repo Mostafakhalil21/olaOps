@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { enviroment } from '../../enviroment'
+//import { enviroment } from '../../enviroment'
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class OrganizationService {
   private oncallPerScheduleUrl=`${this.endPointUrlDev}/api/ocs-tier/`
   private oncallPerScheduleTier='/?format=json'
   private activeAlertsperOrganization=`${this.endPointUrlDev}/api/events/?page=1&limit=25&status=active&open_alerts=%7B%7D&group_by=host&format=json&customer=`
-  authorization=enviroment.mv_token
+  authorization='Token 5pp-025696b08543d72bdcd4'
   constructor(private http: HttpClient) { }
 
 

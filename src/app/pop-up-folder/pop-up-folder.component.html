@@ -12,7 +12,7 @@
   </div>
   <div class="button-content">
   <app-oncall *ngIf="selectedComponent === 1" [inputDataID]="organization" (close)="hideComponent(1)"></app-oncall>
-  <!-- <app-jira *ngIf="selectedComponent === 2" (close)="hideComponent(2)"></app-jira>
-  <app-active-template *ngIf="selectedComponent === 3" (close)="hideComponent(3)" [inputDataID]="organization"></app-active-template> -->
+  <app-jira *ngIf="selectedComponent === 2" (close)="hideComponent(2)"></app-jira>
+  <app-active-template *ngIf="selectedComponent === 3" (close)="hideComponent(3)" [inputDataID]="organization"></app-active-template>
 </div>
 
