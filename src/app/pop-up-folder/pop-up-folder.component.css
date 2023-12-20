@@ -21,11 +21,11 @@ body {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  border: 1px solid #3498db; /* Border color */
-  color: #fff; /* Text color */
-  background-color: #3498db; /* Background color */
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  border: 1px solid #3498db; 
+  color: #fff; 
+  background-color: #3498db; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
   margin-left: 30px;
 }
 
@@ -44,8 +44,8 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   text-align: center;
-  color: #fff; /* Text color */
-  background-color: #3498db; /* Background color */
+  color: #fff; 
+  background-color: #3498db; 
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }

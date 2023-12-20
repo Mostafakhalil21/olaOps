@@ -5,6 +5,7 @@ import { Organization } from '../organization';
 import { OncallComponent } from '../oncall/oncall.component';
 import { JiraComponent } from '../jira/jira.component';
 import { ActiveTemplateComponent } from '../active-template/active-template.component';
+import { AppsComponent } from '../apps/apps.component';
 @Component({
   selector: 'app-pop-up-folder',
   standalone: true,
@@ -13,6 +14,7 @@ import { ActiveTemplateComponent } from '../active-template/active-template.comp
     OncallComponent,
     JiraComponent,
     ActiveTemplateComponent,
+    AppsComponent
   ],
   templateUrl: './pop-up-folder.component.html',
   styleUrl: './pop-up-folder.component.css',

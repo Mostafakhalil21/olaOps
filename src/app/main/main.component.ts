@@ -33,6 +33,8 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.organization.getallorganization().subscribe((res) => {
       this.data = res.children;
+      
+      
     });
   }
   // addIsOncallAvailableAttribute(data:any[]): any{

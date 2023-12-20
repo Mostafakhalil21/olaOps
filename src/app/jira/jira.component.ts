@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { OrganizationService } from '../organization.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { enviroment } from '../../../enviroment'; 
 
 @Component({
   selector: 'app-jira',

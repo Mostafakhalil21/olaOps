@@ -36,3 +36,15 @@ export interface whereToFindMe {
   id: number;
   ChannelName: String;
 }
+
+
+export interface dictionaries{
+  id:number
+  rows:value[]
+}
+
+export interface value{
+  value: string;
+  key:string
+ 
+}

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { OrganizationService } from '../organization.service';
 import { Organization, whereToFindMe } from '../organization';
 import { MmgService } from '../mmg.service';
+import { Observable, map, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-oncall',
@@ -21,6 +23,7 @@ export class OncallComponent {
   scheduleID: number | undefined;
   current_since: any;
   current_until: any;
+  workingHour:string | undefined
 
   formatHoursAndMinutes(dateString: string): string | undefined {
     const dateObject: Date = new Date(dateString);
@@ -166,11 +169,26 @@ export class OncallComponent {
     );
   }
 
+  workingHours(customerNumber: number): Observable<any> {
+    return this.organization.getWorkingHourForEachCustomer().pipe(
+      map((res: any) => {
+        const key = res.rows.find((item: { key: string }) => parseInt(item.key, 10) === customerNumber);
+        return key?.value ?? 'None';
+      }),
+      catchError((error) => {
+        console.error('Error:', error);
+        return of('None'); // Return a default value or handle the error as needed
+      })
+    );
+  }
+
   ngOnInit(): void {
+    this.workingHours(this.checkdata()).subscribe((result) => {
+      this.workingHour=result
+    });
     this.organization.getScheduleForCustomer(this.checkdata()).subscribe(
       (res) => {
         if (res.results && res.results.length > 0) {
-          console.log(res.results);
           if (
             res.results.some(
               (schedule: { name: string }) => schedule.name === 'MMG On-call'
@@ -182,7 +200,14 @@ export class OncallComponent {
             } else {
               this.scheduleID = 237;
             }
-          } else {
+            
+          }else if (
+            res.results.some((schedule: { id: number }) => schedule.id === 8)
+          ) {
+            this.scheduleID = 8;
+          }
+          
+          else {
             this.scheduleID = res.results[0].id;
           }
           this.organization
@@ -202,6 +227,7 @@ export class OncallComponent {
 
                 if (currentoncall) {
                   this.oncallDetails = currentoncall;
+                  
                 } else {
                   console.log('No matching contact found.');
                 }

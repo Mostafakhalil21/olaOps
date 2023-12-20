@@ -47,6 +47,14 @@ export class ActiveTemplateComponent {
   ngOnInit(): void {
     this.organization.getActiveAlertsPerorganization(this.inputDataID.id).subscribe((res)=> {
       this.activeAlerts=res.results
+      console.log(res.results[0].template_ids)
+      
+      this.organization.getTemplate(res.results[0].template_ids).subscribe((res)=>{
+        const apiResponseString =res.fields
+        const apiResponseArray = JSON.parse(apiResponseString);
+        console.log(apiResponseArray);
+
+      })
       
 
     })

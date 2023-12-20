@@ -7,7 +7,6 @@ import { MainComponent } from './main/main.component';
 import { JiraComponent } from './jira/jira.component';
 
 export const routes: Routes = [
-    {path: 'oncall', component: OncallComponent},
-    {path: '' , component:MainComponent},
-    {path: 'jira' , component:JiraComponent},
+    {path: '' , component:MainComponent}
+   
 ];
