@@ -25,6 +25,33 @@ export class OncallComponent {
   current_until: any;
   workingHour:string | undefined
 
+  checkUntillTime(dateString: string):boolean{
+    
+    var targetDate: Date = new Date(dateString);
+
+    // Get the current date and time
+    var currentDate: Date = new Date();
+
+    // Extract components from the target date
+    var targetHours: number = targetDate.getHours();
+    var targetDay: any = targetDate.getDate();
+    var targetYear: number = targetDate.getFullYear();
+    var targetMonth: number = targetDate.getMonth();
+
+    // Extract components from the current date
+    var currentHours: number = currentDate.getHours();
+    var currentDay: any = currentDate.getDate();
+    var currentYear: number = currentDate.getFullYear();
+    var currentMonth: number = currentDate.getMonth();
+    
+    if(targetYear===currentYear && targetMonth===currentMonth && targetDay===currentDay){
+      if(currentHours - targetHours > 0){
+        return true
+      }
+    }
+    return false
+  }
+
   formatHoursAndMinutes(dateString: string): string | undefined {
     const dateObject: Date = new Date(dateString);
     if (isNaN(dateObject.getTime())) {
@@ -138,7 +165,7 @@ export class OncallComponent {
                 this.current_until = this.formatHoursAndMinutes(
                   oncallRes.current_until
                 );
-
+// here
                 const currentOncallId = oncallRes.current;
                 const currentoncall = oncallRes.contacts.find(
                   (contact: any) => contact.id === currentOncallId
@@ -220,7 +247,13 @@ export class OncallComponent {
                 this.current_until = this.formatHoursAndMinutes(
                   oncallRes.current_until
                 );
-                const currentOncallId = oncallRes.current;
+                if(this.checkUntillTime(oncallRes.current_until)){
+                  var currentOncallId = oncallRes.next_contact;
+
+                }else{
+                   currentOncallId = oncallRes.current;
+
+                }
                 const currentoncall = oncallRes.contacts.find(
                   (contact: any) => contact.id === currentOncallId
                 );
