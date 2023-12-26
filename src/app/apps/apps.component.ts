@@ -26,7 +26,6 @@ export class AppsComponent {
 
       if(matchedCustomer){
        this.appsArray = matchedCustomer.valueArray
-       console.log("Value Array for matched customer:", this.appsArray);
 
       }else{
         console.log("Customer not found");

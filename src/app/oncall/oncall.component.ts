@@ -43,9 +43,8 @@ export class OncallComponent {
     var currentDay: any = currentDate.getDate();
     var currentYear: number = currentDate.getFullYear();
     var currentMonth: number = currentDate.getMonth();
-    
     if(targetYear===currentYear && targetMonth===currentMonth && targetDay===currentDay){
-      if(currentHours - targetHours > 0){
+      if(currentHours - targetHours >=0){
         return true
       }
     }
@@ -107,7 +106,12 @@ export class OncallComponent {
             if (team != undefined) {
               this.scheduleID = parseInt(team, 10);
             }
-          } else {
+          }else if(res.results.some((schedule: { id: number }) => schedule.id === 190)){   // check if there is a sixgill schedule 
+
+            this.scheduleID = 190;
+
+          } 
+          else {
             this.scheduleID = res.results[0].id;
           }
           this.organization
@@ -229,9 +233,13 @@ export class OncallComponent {
             }
             
           }else if (
-            res.results.some((schedule: { id: number }) => schedule.id === 8)
+            res.results.some((schedule: { id: number }) => schedule.id === 8) //check if its Bolt schedule 
           ) {
             this.scheduleID = 8;
+          } else if(res.results.some((schedule: { id: number }) => schedule.id === 190)){   // check if there is a sixgill schedule 
+
+            this.scheduleID = 190;
+
           }
           
           else {
